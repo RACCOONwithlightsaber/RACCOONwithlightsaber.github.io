@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from sollyonsol.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 11 Jun 2024 10:19:32 GMT -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/Favicon.ico">
+    <title>$RWL</title>
+    <meta name="description"
+        content="Solly emerges as the iconic figure drawn from the pages of Matt Furie's Boys' Club comic series.">
+    <meta property="og:title" content="Raccoon with lightsaber">
+    <meta property="og:description"
+        content="Solly emerges as the iconic figure drawn from the pages of Matt Furie's Boys' Club comic series.">
+    <meta property="og:image" content="assets/logo.png">
+</head>
+
+<body>
+    <!-- <div id="loading-screen">
+        <img src="assets/revoked.png" alt="Loading...">
+    </div> -->
+    <header class="header">
+        <div class="navbar">
+            <a href="#intro" class="menuItem">Home</a>
+
+            <a href="#SocialsHeader" class="menuItem">Social</a>
+        </div>
+    </header>
+    <div id="intro">
+        <div class="textBar">
+            <h3 class="official">$RWL</h3>
+            <p class="paragraph">Just a Raccoon which a fan of Starwars, so it's just a RACCOON with lightsaber </p>
+            <div class="social">
+                <a class="communityButton" target="_blank" href="https://t.me/RACCOONwithlightsaber">Telegram</a>
+                <a class="twitterButton" target="_blank" href="https://x.com/"><img src="assets/twitter.png" alt=""></a>
+            </div>
+        </div>
+        <div class="guitar">
+            <img src="assets/r.png" alt="">
+        </div>
+    </div>
+   
+    <div id="SocialsHeader">
+        <div class="socialLinks">Socials & Links</div>
+        <div class="linksPara">Check our socials & LINKS here!</div>
+    </div>
+    <div class="socialButtons">
+        <div class="ButtonIcons">
+            <a class="icons" target="_blank" href="https://t.me/RACCOONwithlightsaber"><img src="assets/telegram.png" alt=""></a>
+            <a class="icons" target="_blank"
+            href="https://x.com/"><img
+            src="assets/x.png" alt=""></a>
+            <a class="icons" target="_blank" href=" "><img
+                    src="assets/dexscreener.png" alt=""></a>
+        </div>
+        <a class="icons" target="_blank" href="https://dexscreener.com/sol/"><img
+            src="assets/pump.png" alt=""></a>
+</div>
+        <div class="contract">
+            <div class="contractHeader">CONTRACT:</div>
+            <div class="contractNumber">
+                2
+            </div><input
+                style="display: none;" type="text" value="  2" id="copyText"
+                readonly>
+        </div>
+    </div>
+    </div>
+    <div class="footer">
+        <div class="footerContent">
+            <h2 class="footerHeader">Raccoon with lightsaber - OFFICIAL SITE</h2>
+            <div class="footerParagraph1">GET this MEME! and Support the Collection.</div>
+            <div class="footerParagraph2">The information provided in this disclaimer does not constitute investment
+                advice, financial advice, trading advice, usage or playing advice or any other sort of advice.</div>
+            <div class="footerParagraph3">RWL 2024 © ALL RIGHTS RESERVED</div>
+        </div>
+        <div class="footerImg">
+      
+        </div>
+    </div>
+    <script>
+        document.getElementById("copyButton").addEventListener("click", function () {
+            var copyText = document.getElementById("copyText");
+
+            // Select the text in the input field
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the selected text to the clipboard
+            document.execCommand("copy");
+
+            // Optionally, provide visual feedback or a message to the user
+            alert("Copied the text: " + copyText.value);
+        });
+
+        window.addEventListener('load', function () {
+
+            const isMobile = window.innerWidth <= 1350;
+
+            const displayTime = 4000;
+
+            if (!isMobile) {
+
+                setTimeout(function () {
+                    const loadingScreen = document.getElementById('loading-screen');
+                    loadingScreen.style.display = 'none';
+
+                }, displayTime);
+            }
+            else {
+                const loadingScreen = document.getElementById('loading-screen');
+                loadingScreen.style.display = 'none';
+            }
+        });
+
+    </script>
+</body>
+
+
+</html>
