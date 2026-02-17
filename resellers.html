@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resellers - Scooby GTA V Mod Menu</title>
+<meta name="description" content="Buy Scooby mod menu from official resellers. Multiple payment options available.">
+<link rel="shortcut icon" href="assets/images/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg-primary: #0a0a0f;
+        --bg-secondary: #0f0f16;
+        --bg-card: #14141c;
+        --accent-cyan: #00d4d4;
+        --accent-pink: #ff69b4;
+        --text-primary: #ffffff;
+        --text-secondary: #8a8a9a;
+        --border-color: #1a1a24;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        min-height: 100vh;
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #00e5e5, #00a0a0);
+        border-radius: 10px;
+    }
+
+    /* Navbar */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 15px 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        backdrop-filter: blur(20px);
+        background: rgba(10, 10, 15, 0.9);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .logo {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #00e5e5, #00a0a0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-decoration: none;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+    }
+
+    .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 0.95rem;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: var(--accent-cyan);
+    }
+
+    /* Main Content */
+    .main-content {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 120px 20px 60px;
+    }
+
+    .page-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 40px;
+        background: linear-gradient(135deg, #00e5e5, #00a0a0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Tabs */
+    .tabs {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 15px;
+    }
+
+    .tab {
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 8px 0;
+        position: relative;
+        transition: color 0.3s;
+    }
+
+    .tab:hover {
+        color: var(--text-primary);
+    }
+
+    .tab.active {
+        color: var(--text-primary);
+    }
+
+    .tab.active::after {
+        content: '';
+        position: absolute;
+        bottom: -16px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--accent-cyan);
+    }
+
+    /* Reseller List */
+    .reseller-list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .reseller-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 25px 0;
+        border-bottom: 1px solid var(--border-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .reseller-item:hover {
+        background: rgba(255, 255, 255, 0.02);
+        padding-left: 10px;
+        padding-right: 10px;
+        margin-left: -10px;
+        margin-right: -10px;
+        border-radius: 12px;
+    }
+
+    .reseller-avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+        background: var(--bg-card);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+
+    .reseller-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .reseller-avatar svg {
+        width: 28px;
+        height: 28px;
+        color: var(--accent-cyan);
+    }
+
+    .reseller-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .reseller-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--accent-cyan);
+        margin-bottom: 5px;
+    }
+
+    .reseller-name.pink {
+        color: var(--accent-pink);
+    }
+
+    .reseller-description {
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .reseller-link {
+        color: var(--text-secondary);
+        transition: color 0.3s;
+        flex-shrink: 0;
+    }
+
+    .reseller-item:hover .reseller-link {
+        color: var(--accent-cyan);
+    }
+
+    /* Tab Content */
+    .tab-content {
+        display: none;
+    }
+
+    .tab-content.active {
+        display: block;
+    }
+
+    /* Footer */
+    .footer {
+        text-align: center;
+        padding: 40px 20px;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        font-size: 0.9rem;
+        margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+        .navbar {
+            padding: 15px 20px;
+        }
+        .nav-links {
+            display: none;
+        }
+        .page-title {
+            font-size: 1.8rem;
+        }
+        .reseller-item {
+            flex-wrap: wrap;
+        }
+        .reseller-avatar {
+            width: 48px;
+            height: 48px;
+        }
+    }
+</style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">SCOOBY</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#products">Products</a></li>
+            <li><a href="index.html#pricing">Purchase</a></li>
+            <li><a href="https://discord.gg/XDwmFTJW2P" target="_blank">Discord</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1 class="page-title">Resellers</h1>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" onclick="showTab('international')">International</button>
+            <button class="tab" onclick="showTab('chinese')">Chinese</button>
+        </div>
+
+        <!-- International Resellers -->
+        <div id="international" class="tab-content active">
+            <div class="reseller-list">
+
+                <a href="https://scoobyfunny.myshopify.com/products/scooby-gta-v-lifetime-legacy-enhanced" target="_blank" class="reseller-item">
+                    <div class="reseller-avatar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </div>
+                    <div class="reseller-info">
+                        <div class="reseller-name pink">Scooby Store (Official)</div>
+                        <div class="reseller-description">Official store | Best prices | Direct support | Card, PayPal & more</div>
+                    </div>
+                    <svg class="reseller-link" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+
+                <a href="https://fusiondash.myshopify.com/products/scooby-premium" target="_blank" class="reseller-item">
+                    <div class="reseller-avatar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="2" y1="12" x2="22" y2="12"></line>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                        </svg>
+                    </div>
+                    <div class="reseller-info">
+                        <div class="reseller-name">FusionMonkey</div>
+                        <div class="reseller-description">Trusted reseller | Multiple payment options | Fast delivery</div>
+                    </div>
+                    <svg class="reseller-link" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+
+                <a href="https://ezmod.vip/product/scooby-mod-menu/" target="_blank" class="reseller-item">
+                    <div class="reseller-avatar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                    </div>
+                    <div class="reseller-info">
+                        <div class="reseller-name">Ezmod</div>
+                        <div class="reseller-description">Professional marketplace | Secure checkout | iDEAL, Card & more</div>
+                    </div>
+                    <svg class="reseller-link" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+
+                <a href="https://recoverygods.xyz/product/scooby-gta/" target="_blank" class="reseller-item">
+                    <div class="reseller-avatar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div class="reseller-info">
+                        <div class="reseller-name">RecoveryGods</div>
+                        <div class="reseller-description">Established reseller | PayPal, Card, Crypto | 24/7 Support</div>
+                    </div>
+                    <svg class="reseller-link" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- Chinese Resellers -->
+        <div id="chinese" class="tab-content">
+            <div class="reseller-list">
+
+                <a href="#" class="reseller-item">
+                    <div class="reseller-avatar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                            <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                            <line x1="15" y1="9" x2="15.01" y2="9"></line>
+                        </svg>
+                    </div>
+                    <div class="reseller-info">
+                        <div class="reseller-name pink">Coming Soon</div>
+                        <div class="reseller-description">Chinese resellers will be listed here soon</div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Scooby. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
